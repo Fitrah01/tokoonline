@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "Name": "kursi pijat",
+    "Price": 11111.0,
+    "Image": null
+  },
+  {
+    "Id": 2,
+    "Name": "Meja lipat",
+    "Price": 999.0,
+    "Image": null
+  }
+]

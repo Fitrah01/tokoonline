@@ -1,0 +1,19 @@
+﻿@page
+@model AddProductModel
+
+<h2>Tambah Produk</h2>
+
+<form method="post">
+
+    <input type="text" asp-for="Name" placeholder="Nama Produk" />
+    <br />
+
+    <input type="number" asp-for="Price" placeholder="Harga" />
+    <br />
+
+    <input type="text" asp-for="Image" placeholder="Link Gambar" />
+    <br />
+
+    <button type="submit">Simpan</button>
+
+</form>

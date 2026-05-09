@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+
+<h2>Produk</h2>
+
+@if (!Model.IsLogin)
+{
+    <a href="/Login" class="btn btn-warning">Login Dulu</a>
+}
+else
+{
+    <p>Anda sudah login</p>
+}
+
+<div class="row">
+
+@foreach (var item in Model.Products)
+{
+    <div class="col-md-4">
+
+        <h4>@item.Name</h4>
+        <p>Rp @item.Price</p>
+
+        @if (Model.IsLogin)
+        {
+            <button onclick="pay(@item.Price)" class="btn btn-success">
+                Bayar
+            </button>
+        }
+
+    </div>
+}
+
+</div>
+
+<script src="https://app.sandbox.midtrans.com/snap/snap.js"
+data-client-key="Mid-client-Gu_EDCEO62GFVjpQ"></script>
+
+<script>
+function pay(amount) {
+
+    fetch('/Payment/CreateTransaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: amount })
+    })
+    .then(r => r.json())
+    .then(data => {
+
+        snap.pay(data.token, {
+            onSuccess: function(res){ console.log(res); },
+            onPending: function(res){ console.log(res); },
+            onError: function(res){ console.log(res); }
+        });
+
+    });
+
+}
+</script>

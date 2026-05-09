@@ -1,0 +1,56 @@
+﻿@page
+@model tokoonline.Pages.ChartModel
+
+<div class="container mt-5">
+
+    <h1 class="mb-5">
+        Keranjang Belanja
+    </h1>
+
+    @foreach (var item in Model.CartItems)
+    {
+        <div class="card shadow mb-3">
+
+            <div class="card-body">
+
+                <h4>
+                    @item.Name
+                </h4>
+
+                <h5 class="text-primary">
+                    Rp @item.Price
+                </h5>
+
+                <form method="post"
+                      asp-page-handler="Remove">
+
+                    <input type="hidden"
+                           name="id"
+                           value="@item.Id" />
+
+                    <button type="submit"
+                            class="btn btn-danger mt-2">
+
+                        Hapus dari Keranjang
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    }
+
+    <h3 class="mt-4">
+        Total: Rp @Model.Total
+    </h3>
+
+    <a href="/Checkout"
+           class="btn btn-success mt-3">
+
+        Bayar Sekarang
+
+    </a>
+
+</div>

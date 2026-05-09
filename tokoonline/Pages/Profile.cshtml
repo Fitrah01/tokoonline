@@ -1,0 +1,45 @@
+﻿@page
+@model tokoonline.Pages.ProfileModel
+
+<div class="container mt-5">
+
+    <div class="card shadow p-5">
+
+        <h1 class="mb-4 text-center">
+            Profile Saya
+        </h1>
+
+        <div class="mb-3">
+
+            <h5>
+                Nama
+            </h5>
+
+            <p>
+                @Model.CurrentUser?.Name
+            </p>
+
+        </div>
+
+        <div class="mb-3">
+
+            <h5>
+                Email
+            </h5>
+
+            <p>
+                @Model.CurrentUser?.Email
+            </p>
+
+        </div>
+
+        <a href="/Index"
+               class="btn btn-dark">
+
+            Kembali ke Toko
+
+        </a>
+
+    </div>
+
+</div>

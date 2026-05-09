@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "tokoonline.Controllers.PaymentController",
+    "Method": "CreateToken",
+    "RelativePath": "api/Payment/create-token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

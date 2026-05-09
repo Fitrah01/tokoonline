@@ -1,0 +1,50 @@
+﻿@page
+@model tokoonline.Pages.CheckoutModel
+
+<script type="text/javascript"
+        src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="ISI_CLIENT_KEY_KAMU">
+</script>
+
+<div class="container mt-5">
+
+    <div class="card shadow p-5">
+
+        <h1 class="mb-4">
+            Checkout
+        </h1>
+
+        <h3>
+            Total Pembayaran
+        </h3>
+
+        <h2 class="text-primary">
+            Rp @Model.Total
+        </h2>
+
+        <button id="pay-button"
+                class="btn btn-success mt-4">
+
+            Bayar Sekarang
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    document.getElementById('pay-button')
+    .onclick = async function () {
+
+        let response =
+            await fetch('/api/payment/create-token');
+
+        let token = await response.text();
+
+        snap.pay(token);
+
+    };
+
+</script>
